@@ -6,11 +6,10 @@ import { useNewsContext } from './Context/NewsContext';
 
 export const Lobby = () => {
   const { cityInput, setCityInput, result, setResult } = useNewsContext();
-
-  // console.log("props:", props)
+  // console.log("context contents9:", cityInput, setCityInput, result, setResult)
   const navigate = useNavigate();
 
-  async function onSubmit(event) {
+  const onSubmit = async(event) => {
     event.preventDefault();
     try {
       const response = await fetch("/api/generateCity", {
@@ -49,6 +48,7 @@ export const Lobby = () => {
       <img src="/dog.png" />
       <h3>Enter a City</h3>
       <form onSubmit={onSubmit}>
+      {/* <form onSubmit={() => onSubmit}> */}
         <input
           type="text"
           name="city"

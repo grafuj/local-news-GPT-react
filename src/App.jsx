@@ -10,7 +10,7 @@ function App() {
     <BrowserRouter>
           <Helmet>
             <title>Local News GPT</title>
-            <link rel="icon" href="../public/dog.png" />
+            <link rel="icon" href="/dog.png" />
           </Helmet>
           
       <NewsProvider>
