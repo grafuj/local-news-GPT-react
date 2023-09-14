@@ -1,37 +1,28 @@
-import { NewsProvider } from "./NewsContext";
+import { NewsProvider } from "./Context/NewsContext";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Helmet } from "react-helmet";
 import { Lobby } from "./Lobby";
-import "./index.module.css";
-import News from "./[news]";
+import "./index.css";
+import { LocalNewsPage } from "./LocalNewsPage";
 
 function App() {
-
-  const router = useRouter();
-  const { query } = router;
-  
-  let pageComponent;
-  if (query.page === "News") {
-    // pageComponent = <News newsCityInput={cityInput} newsResult={result} />;
-    pageComponent = <News />;
-  } else {
-    // pageComponent = <Lobby cityInput={cityInput} setCityInput={setCityInput} result={result} setResult={setResult} />;
-    pageComponent = <Lobby />;
-  }
-
   return (
-    <>
-    <NewsProvider>
-      <div>
-        <Head>
-          <title>Local News GPT</title>
-          <link rel="icon" href="/dog.png" />
-        </Head>
-        {pageComponent}
-        {/* {result && result[0].title} */}
-      </div>
-    </NewsProvider>
-
-    </>
-  )
+    <BrowserRouter>
+          <Helmet>
+            <title>Local News GPT</title>
+            <link rel="icon" href="../public/dog.png" />
+          </Helmet>
+          
+      <NewsProvider>
+        <div>
+          <Routes>
+            <Route path="/" element={<Lobby />} />
+            <Route path="/News" element={<LocalNewsPage />} />
+          </Routes>
+        </div>
+      </NewsProvider>
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;

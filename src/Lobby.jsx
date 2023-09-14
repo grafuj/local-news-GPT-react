@@ -1,14 +1,14 @@
 // import React, { useState, useEffect } from "react";
-import styles from "./index.module.css";
-import { useRouter } from "next/router";
+import { useNavigate, Link } from "react-router-dom";
 import { responseParser } from "./api/responseParser";
-import { useNewsContext } from './NewsContext';
+import { useNewsContext } from './Context/NewsContext';
+
 
 export const Lobby = () => {
   const { cityInput, setCityInput, result, setResult } = useNewsContext();
 
   // console.log("props:", props)
-  const router = useRouter();
+  const navigate = useNavigate();
 
   async function onSubmit(event) {
     event.preventDefault();
@@ -30,11 +30,11 @@ export const Lobby = () => {
       setResult(responseParser(data.result)); // this line doesn't work
 
       console.log("result30:", result);
-      
+
       setTimeout(() => {  //this is an attempt at delaying setResult so that it eventually gets set or to find out if a later console.log is different
         // setResult(responseParser(data.result));
         console.log("result35:", result);
-        router.push('/News') //checking if staying on the page for longer fixes the problem
+        navigate("/News"); //checking if staying on the page for longer fixes the problem
       }, 1500);
 
       // router.push("/News");
@@ -45,8 +45,8 @@ export const Lobby = () => {
   }
 
   return (
-    <main className={styles.main}>
-      <img src="/dog.png" className={styles.icon} />
+    <main>
+      <img src="/dog.png" />
       <h3>Enter a City</h3>
       <form onSubmit={onSubmit}>
         <input
@@ -56,9 +56,9 @@ export const Lobby = () => {
           value={cityInput}
           onChange={(e) => setCityInput(e.target.value)}
         />
-        {/* <Link href="/News"> */}
-          <button type="submit">Generate</button>
-        {/* </Link> */}
+        <Link to="/News">
+        <button type="submit">Generate</button>
+        </Link>
       </form>
       {/* <div className={styles.result}>lobby 51{result && result[0].title}</div> */}
       {/* <div className={styles.result}>{result && result[0].descriptions}</div> */}
