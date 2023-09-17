@@ -4,7 +4,7 @@ const NewsContext = createContext();
 
 export function NewsProvider({ children }) {
   const [cityInput, setCityInput] = useState("");
-  const [result, setResult] = useState();
+  const [result, setResult] = useState([{title: "testTitle", description: "testDesc"}]);
 
   return (
     <NewsContext.Provider value={{ cityInput, setCityInput, result, setResult }}>

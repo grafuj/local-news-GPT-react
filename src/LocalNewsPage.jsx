@@ -3,8 +3,9 @@ import React from "react";
 import { useNewsContext } from "./Context/NewsContext";
 
 export const LocalNewsPage = () => {
-  const { LNPCityInput, LNPResult } = useNewsContext;
-  console.log("7 LocalNewsPage: city, res", LNPCityInput, LNPResult);
+  const { cityInput, result } = useNewsContext();
+  // const { cityInput, setCityInput, result, setResult } = useNewsContext();
+  console.log("7 LocalNewsPage: city, res", cityInput, result);
 
   return (
     <>
@@ -12,8 +13,8 @@ export const LocalNewsPage = () => {
         <div className={"parent-div"}>
           <div className={"nav"}>
             <div className={"title"}>
-              {LNPCityInput ? (
-                { LNPCityInput }
+              {cityInput ? (
+                <a>{cityInput}</a> 
               ) : (
                 <a>Loading...</a>
               )}
@@ -44,7 +45,7 @@ export const LocalNewsPage = () => {
                     We dive into the next evolution of the web that claims
                     to put the power of the platforms back into the hands
                     of the people. But is it really fulfilling its promise?
-                    {LNPCityInput && LNPCityInput[0].description}
+                    {result && result[0].description}
                   </div>
 
                   <button className={"read-more-button"}>READ MORE</button>
@@ -57,7 +58,7 @@ export const LocalNewsPage = () => {
 
               <div className={"new-item"}>
                 <h3 className={"bold-titles"}>
-                  {LNPCityInput && LNPCityInput[0].title}
+                  {result && result[0].title}
                 </h3>
                 <p> Will hydrogen-fueled cars ever catch up to EVs? </p>
               </div>
