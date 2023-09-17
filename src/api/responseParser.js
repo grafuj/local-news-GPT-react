@@ -21,7 +21,15 @@ export const responseParser = (responseText) => {
         lineTitle.trim().startsWith('d. ') ||
         lineTitle.trim().startsWith('e. ') ||
         lineTitle.trim().startsWith('f. ') ||
-        lineTitle.trim().startsWith('g. ')) {
+        lineTitle.trim().startsWith('g. ') ||
+        lineTitle.trim().startsWith('h. ') ||
+        lineTitle.trim().startsWith('i. ') ||
+        lineTitle.trim().startsWith('j. ') ||
+        lineTitle.trim().startsWith('k. ') ||
+        lineTitle.trim().startsWith('l. ') ||
+        lineTitle.trim().startsWith('m. ') ||
+        lineTitle.trim().startsWith('n. ') ||
+        lineTitle.trim().startsWith('o. ')) {
       currentTitle = lineTitle.trim().substring(3); // Remove the bullet point (e.g., "a. ")
     }
 

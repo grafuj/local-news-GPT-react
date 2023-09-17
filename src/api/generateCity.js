@@ -34,7 +34,7 @@ export default async function(req, res) {
       max_tokens: 15,
     });
 
-    console.log("completion:", completion);
+    console.log("37 completion:", completion);
     res.status(200).json({ result: completion.data.choices[0].text });
   } catch (error) {
     if (error.response) {

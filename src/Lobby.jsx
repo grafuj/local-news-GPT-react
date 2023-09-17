@@ -2,14 +2,14 @@
 import { useNavigate, Link } from "react-router-dom";
 import { responseParser } from "./api/responseParser";
 import { useNewsContext } from './Context/NewsContext';
-
+import './index.css';
 
 export const Lobby = () => {
   const { cityInput, setCityInput, result, setResult } = useNewsContext();
   // console.log("context contents9:", cityInput, setCityInput, result, setResult)
   const navigate = useNavigate();
 
-  const onSubmit = async(event) => {
+  const onSubmit = async (event) => {
     event.preventDefault();
     try {
       /*
@@ -74,27 +74,37 @@ export const Lobby = () => {
       console.error(error);
       alert(error.message);
     }
-  }
+  };
 
   return (
-    <main>
-      <img src="/dog.png" />
-      <h3>Enter a City</h3>
-      <form onSubmit={onSubmit}>
-      {/* <form onSubmit={() => onSubmit}> */}
-        <input
-          type="text"
-          name="city"
-          placeholder="Enter a city"
-          value={cityInput}
-          onChange={(e) => setCityInput(e.target.value)}
-        />
-        {/* <Link to="/News"> */}
-        <button type="submit">Generate</button>
-        {/* </Link> */}
-      </form>
-      {/* <div className={styles.result}>lobby 51{result && result[0].title}</div> */}
-      {/* <div className={styles.result}>{result && result[0].descriptions}</div> */}
+    <main className="parent-div">
+      <div className="main">
+
+
+        {/* <img src="/dog.png" /> */}
+        <h3>Local News GPT</h3>
+        <h3>Enter a City</h3>
+        <form onSubmit={onSubmit} className="form">
+          {/* <form onSubmit={() => onSubmit}> */}
+          <input
+            type="text"
+            name="city"
+            placeholder="Enter a city"
+            value={cityInput}
+            onChange={(e) => setCityInput(e.target.value)}
+          />
+          {/* <Link to="/News"> */}
+          <button type="submit" className="read-more-button" style={{ margin: 'auto' }}>Generate</button>
+          {/* </Link> */}
+        </form>
+        {/* <div className={styles.result}>lobby 51{result && result[0].title}</div> */}
+        {/* <div className={styles.result}>{result && result[0].descriptions}</div> */}
+      </div>
+      <hr className={"hr-separator"} />
+
+      <div className={"attribution"}>
+        Code by <a href="https://github.com/grafuj/news-homepage">grafuj</a>.
+      </div>
     </main>
   );
 };

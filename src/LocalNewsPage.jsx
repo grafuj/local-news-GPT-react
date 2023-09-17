@@ -14,7 +14,7 @@ export const LocalNewsPage = () => {
           <div className={"nav"}>
             <div className={"title"}>
               {cityInput ? (
-                <a>{cityInput}</a> 
+                <a>{cityInput}</a>
               ) : (
                 <a>Loading...</a>
               )}
@@ -106,11 +106,7 @@ export const LocalNewsPage = () => {
           <hr className={"hr-separator"} />
 
           <div className={"attribution"}>
-            Challenge by{" "}
-            <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">
-              Frontend Mentor
-            </a>
-            . Code by <a href="https://github.com/grafuj/news-homepage">grafuj</a>.
+            Code by <a href="https://github.com/grafuj/news-homepage">grafuj</a>.
           </div>
         </div>
       </>
