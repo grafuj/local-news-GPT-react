@@ -405,3 +405,7 @@ table {
   font-weight: bold;
   margin-top: 40px;
 }
+
+.city-image {
+  color:  hsl(240, 100%, 5%);
+}

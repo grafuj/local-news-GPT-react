@@ -4,6 +4,8 @@ import { responseParser } from "./api/responseParser";
 import { useNewsContext } from './Context/NewsContext';
 import './index.css';
 
+
+
 export const Lobby = () => {
   const { cityInput, setCityInput, result, setResult } = useNewsContext();
   // console.log("context contents9:", cityInput, setCityInput, result, setResult)
@@ -79,13 +81,10 @@ export const Lobby = () => {
   return (
     <main className="parent-div">
       <div className="main">
-
-
-        {/* <img src="/dog.png" /> */}
+        <img className="city-image" src="/assets/images/building-user-solid.svg" style={{ width: '60px' }} />
         <h3>Local News GPT</h3>
         <h3>Enter a City</h3>
         <form onSubmit={onSubmit} className="form">
-          {/* <form onSubmit={() => onSubmit}> */}
           <input
             type="text"
             name="city"

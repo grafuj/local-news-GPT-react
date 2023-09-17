@@ -106,7 +106,9 @@ export const LocalNewsPage = () => {
           <hr className={"hr-separator"} />
 
           <div className={"attribution"}>
-            Code by <a href="https://github.com/grafuj/news-homepage">grafuj</a>.
+            Assets from 
+            <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>
+            . Code by <a href="https://github.com/grafuj/news-homepage">grafuj</a>.
           </div>
         </div>
       </>
