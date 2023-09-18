@@ -3,9 +3,9 @@ import React from "react";
 import { useNewsContext } from "./Context/NewsContext";
 
 export const LocalNewsPage = () => {
-  const { cityInput, result } = useNewsContext();
+  const { cityInput, result, image } = useNewsContext();
   // const { cityInput, setCityInput, result, setResult } = useNewsContext();
-  console.log("7 LocalNewsPage: city, res", cityInput, result);
+  // console.log("7 LocalNewsPage: city, res", cityInput, result);
 
   return (
     <>
@@ -32,8 +32,8 @@ export const LocalNewsPage = () => {
             <div className={"image-with-subtext"}>
               <div className={"blocks-image"}>
                 <img
-                  src="assets/images/blocks.jpg"
-                  alt="Colourful Blocks"
+                  src={image}
+                  alt="City image"
                   className={"limit-img-width"}
                 />
               </div>

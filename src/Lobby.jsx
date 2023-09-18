@@ -7,7 +7,7 @@ import './index.css';
 
 
 export const Lobby = () => {
-  const { cityInput, setCityInput, result, setResult } = useNewsContext();
+  const { cityInput, setCityInput, result, setResult, image, setImage } = useNewsContext();
   // console.log("context contents9:", cityInput, setCityInput, result, setResult)
   const navigate = useNavigate();
 
@@ -115,6 +115,7 @@ export const Lobby = () => {
         description: 'The Bohemian Heart of Paris: Take a stroll through Montmartre, the charming and artistic neighborhood known for its vibrant history and picturesque streets.'
       }
     ]);
+    setImage("/assets/images/paris.jpeg");
   };
 
   const setLondon = () => {
@@ -149,6 +150,7 @@ export const Lobby = () => {
         description: 'Relax and unwind in the heart of London at Hyde Park, a vast green space offering recreational activities and serene natural beauty.'
       }
     ]);
+    setImage("/assets/images/london.jpeg");
   };
 
   const setMadrid = () => {
@@ -183,6 +185,7 @@ export const Lobby = () => {
         description: 'Wander through the charming streets of La Latina, a historic neighborhood in Madrid known for its tapas, markets, and vibrant atmosphere.'
       }
     ]);
+    setImage("/assets/images/madrid.jpeg");
   };
 
 
