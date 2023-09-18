@@ -108,7 +108,7 @@ export const LocalNewsPage = () => {
           <div className={"attribution"}>
             Assets from 
             <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>
-            . Code by <a href="https://github.com/grafuj/news-homepage">grafuj</a>.
+            . Code by <a href="https://github.com/grafuj/local-news-GPT-react">grafuj</a>.
           </div>
         </div>
       </>
