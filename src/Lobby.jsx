@@ -117,11 +117,81 @@ export const Lobby = () => {
     ]);
   };
 
+  const setLondon = () => {
+    setCityInput("London");
+    setResult([
+      {
+        title: 'London Fashion Week Extravaganza',
+        description: 'Experience the glamour and creativity of London Fashion Week, where top designers showcase cutting-edge fashion trends.'
+      },
+      {
+        title: 'British Museum: A Journey Through History',
+        description: 'Explore the treasures of human history at the British Museum, home to an extensive collection of artifacts from around the world.'
+      },
+      {
+        title: 'Fine Dining in London\'s Culinary Scene',
+        description: 'Indulge your taste buds with the diverse culinary offerings of London, from Michelin-starred restaurants to street food markets.'
+      },
+      {
+        title: 'Celebrating London\'s Rich Cultural Heritage',
+        description: 'Immerse yourself in London\'s vibrant arts and culture scene, featuring world-class theaters, galleries, and music venues.'
+      },
+      {
+        title: 'Cruising the Thames: London\'s Iconic River',
+        description: 'Discover the beauty of London from the Thames River, where you can enjoy scenic cruises and stunning views of the city\'s landmarks.'
+      },
+      {
+        title: 'Exploring the Historic Streets of Greenwich',
+        description: 'Step back in time as you explore the historic streets of Greenwich, home to the Royal Observatory, Cutty Sark, and more.'
+      },
+      {
+        title: 'London\'s Green Oasis: Hyde Park',
+        description: 'Relax and unwind in the heart of London at Hyde Park, a vast green space offering recreational activities and serene natural beauty.'
+      }
+    ]);
+  };
+
+  const setMadrid = () => {
+    setCityInput("Madrid");
+    setResult([
+      {
+        title: 'Madrid Fashion Scene: Where Style Meets Passion',
+        description: 'Experience the vibrant fashion culture of Madrid, where passion and style collide on the runways and in the streets.'
+      },
+      {
+        title: 'Prado Museum: Spain\'s Artistic Treasure Trove',
+        description: 'Delve into the world of art at the Prado Museum, home to a remarkable collection of European masterpieces and Spanish art.'
+      },
+      {
+        title: 'Gastronomic Delights of Madrid',
+        description: 'Savor the rich and diverse flavors of Madrid, from traditional tapas bars to modern Michelin-starred restaurants.'
+      },
+      {
+        title: 'Discovering Spanish Heritage in Madrid',
+        description: 'Immerse yourself in Spain\'s heritage and history with visits to iconic landmarks like the Royal Palace and Plaza Mayor.'
+      },
+      {
+        title: 'Retiro Park: Green Oasis in the Heart of Madrid',
+        description: 'Relax in the lush beauty of Retiro Park, a tranquil retreat in the heart of Madrid offering boating, gardens, and more.'
+      },
+      {
+        title: 'Nightlife in Madrid: A City that Never Sleeps',
+        description: 'Experience the lively nightlife of Madrid, where the party goes on into the early hours at clubs, bars, and flamenco venues.'
+      },
+      {
+        title: 'Exploring the Historic Streets of La Latina',
+        description: 'Wander through the charming streets of La Latina, a historic neighborhood in Madrid known for its tapas, markets, and vibrant atmosphere.'
+      }
+    ]);
+  };
+
+
   return (
     <main className="parent-div">
       <div className="main">
         <img className="city-image" src="/assets/images/building-user-solid.svg" style={{ width: '60px' }} />
         <h3>Local News GPT</h3>
+        <p>This is a static version of a local news site. The version with active API is finished developing but working on deployment.</p>
         <h3>Select a City</h3>
         {/* <form onSubmit={onSubmit} className="form"> */}
         <form className="form">
@@ -135,9 +205,17 @@ export const Lobby = () => {
           {/* <Link to="/News"> */}
           {/* </Link> */}
           {/* <button type="submit" className="read-more-button" style={{ margin: 'auto' }}>Paris</button> */}
-          <Link to="/News">
-            <button onClick={setParis} className="read-more-button" style={{ margin: 'auto' }}>Paris</button>
-          </Link>
+          <div className="button-row">
+            <Link className="text-link" to="/News">
+              <button onClick={setParis} className="read-more-button" style={{ margin: 'auto' }}>Paris</button>
+            </Link>
+            <Link className="text-link" to="/News">
+              <button onClick={setLondon} className="read-more-button" style={{ margin: 'auto' }}>London</button>
+            </Link>
+            <Link className="text-link" to="/News">
+              <button onClick={setMadrid} className="read-more-button" style={{ margin: 'auto' }}>Madrid</button>
+            </Link>
+          </div>
         </form>
       </div>
       <hr className={"hr-separator"} />
