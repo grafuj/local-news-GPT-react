@@ -115,7 +115,7 @@ export const Lobby = () => {
         description: 'The Bohemian Heart of Paris: Take a stroll through Montmartre, the charming and artistic neighborhood known for its vibrant history and picturesque streets.'
       }
     ]);
-    setImage("/assets/images/paris.jpeg");
+    setImage("/assets/images/paris.jpg");
   };
 
   const setLondon = () => {
