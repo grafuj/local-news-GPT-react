@@ -3,12 +3,12 @@ This is a project to populate webpages using Open AI's open API to generate loca
 
 ## Screenshots
 
-![Homepage](https://github.com/grafuj/jungle-rails/blob/master/docs/homepage.PNG)
+![Lobby](https://raw.githubusercontent.com/grafuj/local-news-GPT-react/static-pages/public/assets/images/Lobby-screenshot.PNG)
+
+![NewsPage](https://raw.githubusercontent.com/grafuj/local-news-GPT-react/static-pages/public/assets/images/LNP-screenshot.PNG)
 
 
-
-
-
+Built with:
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.

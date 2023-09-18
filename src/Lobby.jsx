@@ -223,7 +223,7 @@ export const Lobby = () => {
       </div>
       <hr className={"hr-separator"} />
       <div className={"attribution"}>
-        Code by <a href="https://github.com/grafuj/local-news-GPT-react">grafuj</a>.
+        Code by <a href="https://github.com/grafuj/local-news-GPT-react/tree/static-pages">grafuj</a>.
       </div>
     </main>
   );
