@@ -15,6 +15,7 @@ export const responseParser = (responseText) => {
     let currentTitle = "";
     let currentDescription = "";
 
+    // regex: = /^[a-o]\. /i;
     if (lineTitle.trim().startsWith('a. ') ||
         lineTitle.trim().startsWith('b. ') ||
         lineTitle.trim().startsWith('c. ') ||
