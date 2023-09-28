@@ -3,9 +3,9 @@ import React from "react";
 import { useNewsContext } from "./Context/NewsContext";
 
 export const LocalNewsPage = () => {
-  const { cityInput, result } = useNewsContext();
+  const { cityInput, result, image } = useNewsContext();
   // const { cityInput, setCityInput, result, setResult } = useNewsContext();
-  console.log("7 LocalNewsPage: city, res", cityInput, result);
+  // console.log("7 LocalNewsPage: city, res", cityInput, result);
 
   return (
     <>
@@ -32,19 +32,16 @@ export const LocalNewsPage = () => {
             <div className={"image-with-subtext"}>
               <div className={"blocks-image"}>
                 <img
-                  src="assets/images/blocks.jpg"
-                  alt="Colourful Blocks"
+                  src={image}
+                  alt="City image"
                   className={"limit-img-width"}
                 />
               </div>
 
               <div className={"image-subtext"}>
-                <div className={"catchy-title"}>The Bright Future</div>
+                <div className={"catchy-title"}>A Vibrant Future in {cityInput}</div>
                 <div className={"read-more-container"}>
                   <div className={"read-more-subtext"}>
-                    We dive into the next evolution of the web that claims
-                    to put the power of the platforms back into the hands
-                    of the people. But is it really fulfilling its promise?
                     {result && result[0].description}
                   </div>
 
@@ -58,29 +55,27 @@ export const LocalNewsPage = () => {
 
               <div className={"new-item"}>
                 <h3 className={"bold-titles"}>
-                  {result && result[0].title}
+                  {result && result[1].title}
                 </h3>
-                <p> Will hydrogen-fueled cars ever catch up to EVs? </p>
+                <p> {result && result[1].description} </p>
               </div>
 
               <hr className={"hr-separator"} />
 
               <div className={"new-item"}>
-                <h3 className={"bold-titles"}>The Downsides of AI Artistry</h3>
-                <p>
-                  What are the possible adverse effects of on-demand AI image
-                  generation?
-                </p>
+                <h3 className={"bold-titles"}>
+                  {result && result[2].title}
+                </h3>
+                <p> {result && result[2].description} </p>
               </div>
 
               <hr className={"hr-separator"} />
 
               <div className={"new-item"}>
-                <h3 className={"bold-titles"}>Is VC Funding Drying Up?</h3>
-                <p>
-                  Private funding by VC firms is down 50% YOY. We take a look
-                  at what that means.
-                </p>
+                <h3 className={"bold-titles"}>
+                  {result && result[3].title}
+                </h3>
+                <p> {result && result[3].description} </p>
               </div>
             </div>
           </div>
@@ -88,25 +83,31 @@ export const LocalNewsPage = () => {
           <div className={"story-tiles"}>
             <div className={"story-tile"}>
               <div className={"story-number"}>Story 01</div>
-              <h3 className={"bold-titles"}>Reviving Retro PCs</h3>
-              What happens when old PCs are given modern upgrades?
+              <h3 className={"bold-titles"}>
+                  {result && result[4].title}
+              </h3>
+              {result && result[4].description}
             </div>
             <div className={"story-tile"}>
               <div className={"story-number"}>Story 02</div>
-              <h3 className={"bold-titles"}>Top 10 Laptops of 2022</h3>
-              Our best picks for various needs and budgets.
+              <h3 className={"bold-titles"}>
+                  {result && result[5].title}
+              </h3>
+              {result && result[5].description}
             </div>
             <div className={"story-tile"}>
               <div className={"story-number"}>Story 03</div>
-              <h3 className={"bold-titles"}>The Growth of Gaming</h3>
-              How the pandemic has sparked fresh opportunities.
+              <h3 className={"bold-titles"}>
+                  {result && result[6].title}
+              </h3>
+              {result && result[6].description}
             </div>
           </div>
 
           <hr className={"hr-separator"} />
 
           <div className={"attribution"}>
-            Assets from 
+            Assets from {" "}
             <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>
             . Code by <a href="https://github.com/grafuj/local-news-GPT-react">grafuj</a>.
           </div>
