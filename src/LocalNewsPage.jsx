@@ -3,9 +3,9 @@ import React from "react";
 import { useNewsContext } from "./Context/NewsContext";
 
 export const LocalNewsPage = () => {
-  const { cityInput, result, image } = useNewsContext();
+  const { cityInput, result } = useNewsContext();
   // const { cityInput, setCityInput, result, setResult } = useNewsContext();
-  // console.log("7 LocalNewsPage: city, res", cityInput, result);
+  console.log("7 LocalNewsPage: city, res", cityInput, result);
 
   return (
     <>
@@ -31,11 +31,7 @@ export const LocalNewsPage = () => {
           <div className={"image-container"}>
             <div className={"image-with-subtext"}>
               <div className={"blocks-image"}>
-                <img
-                  src={image}
-                  alt="City image"
-                  className={"limit-img-width"}
-                />
+                <img src="assets/images/blocks.jpg" alt="Colourful Blocks" className={"limit-img-width"} />
               </div>
 
               <div className={"image-subtext"}>
@@ -55,27 +51,27 @@ export const LocalNewsPage = () => {
 
               <div className={"new-item"}>
                 <h3 className={"bold-titles"}>
-                  {result && result[1].title}
+                  {result && result[0].title}
                 </h3>
-                <p> {result && result[1].description} </p>
+                <p> {result && result[0].description} </p>
               </div>
 
               <hr className={"hr-separator"} />
 
               <div className={"new-item"}>
                 <h3 className={"bold-titles"}>
-                  {result && result[2].title}
+                  {/* {result && result[2].title} */}
                 </h3>
-                <p> {result && result[2].description} </p>
+                {/* <p> {result && result[2].description} </p> */}
               </div>
 
               <hr className={"hr-separator"} />
 
               <div className={"new-item"}>
                 <h3 className={"bold-titles"}>
-                  {result && result[3].title}
+                  {/* {result && result[3].title} */}
                 </h3>
-                <p> {result && result[3].description} </p>
+                {/* <p> {result && result[3].description} </p> */}
               </div>
             </div>
           </div>
@@ -84,23 +80,23 @@ export const LocalNewsPage = () => {
             <div className={"story-tile"}>
               <div className={"story-number"}>Story 01</div>
               <h3 className={"bold-titles"}>
-                  {result && result[4].title}
+                {/* {result && result[4].title} */}
               </h3>
-              {result && result[4].description}
+              {/* {result && result[4].description} */}
             </div>
             <div className={"story-tile"}>
               <div className={"story-number"}>Story 02</div>
               <h3 className={"bold-titles"}>
-                  {result && result[5].title}
+                {/* {result && result[5].title} */}
               </h3>
-              {result && result[5].description}
+              {/* {result && result[5].description} */}
             </div>
             <div className={"story-tile"}>
               <div className={"story-number"}>Story 03</div>
               <h3 className={"bold-titles"}>
-                  {result && result[6].title}
+                {/* {result && result[6].title} */}
               </h3>
-              {result && result[6].description}
+              {/* {result && result[6].description} */}
             </div>
           </div>
 
