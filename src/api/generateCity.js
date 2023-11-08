@@ -1,28 +1,17 @@
 import { Configuration, OpenAIApi } from "openai";
 
-const configuration = new Configuration({
-  apiKey: process.env.OPENAI_API_KEY,
-});
-const openai = new OpenAIApi(configuration);
+const generateCity = async (city) {
+  const configuration = new Configuration({
+    apiKey: process.env.OPENAI_API_KEY,
+  });
+  const openai = new OpenAIApi(configuration);
 
-export default async function(req, res) {
   if (!configuration.apiKey) {
-    res.status(500).json({
-      error: {
-        message: "OpenAI API key not configured, please follow instructions in README.md",
-      }
-    });
-    return;
+    throw new Error("OpenAI API key not configured, please follow instructions in README.md");
   }
 
-  const city = req.body.city || '';
   if (city.trim().length === 0) {
-    res.status(400).json({
-      error: {
-        message: "Please enter a valid city",
-      }
-    });
-    return;
+    throw new Error("Please enter a valid city");
   }
 
   try {
@@ -35,7 +24,8 @@ export default async function(req, res) {
     });
 
     console.log("37 completion:", completion);
-    res.status(200).json({ result: completion.data.choices[0].text });
+
+    return completion.data.choices[0].text;
   } catch (error) {
     if (error.response) {
       console.error(error.response.status, error.response.data);
@@ -49,7 +39,7 @@ export default async function(req, res) {
       });
     }
   }
-}
+};
 
 function generatePrompt(city) {
   const capitalizedCity =
@@ -70,17 +60,17 @@ function generatePrompt(city) {
 
   /*
   Since this is going to be placed into a webpage, I'm hoping you can place the result in a numbered list that is plain text (not code).
-
+ 
   - four new stories (a, b, c, d)
   - three main stories to appear on tiles (a, b, c)
-
+ 
   Here is an example for Madrid:
-
+ 
     a. Madrid's Annual Flamenco Festival: Experience the passion and rhythm of Spain's iconic dance form at Madrid's annual Flamenco Festival.
     b. New Park Opens in the Heart of the City: Madrid welcomes a new urban park, providing a green oasis for residents and visitors to relax and enjoy nature.
     c. Tech Innovation Drives Madrid's Economy: Learn how Madrid is becoming a hub for tech innovation, attracting startups and fostering entrepreneurship.
     d. Royal Palace of Madrid: A Palace Fit for Royalty: Dive into the rich history and grandeur of the Royal Palace of Madrid, which has witnessed centuries of Spanish royalty.
-
+ 
     a. Culinary Delights of Madrid: Indulge in the diverse culinary scene of Madrid, from traditional tapas to innovative fusion cuisine.
     b. Prado Museum: A Treasure Trove of Art: Explore the world-renowned Prado Museum, home to an impressive collection of European art masterpieces.
     c. Retiro Park: Urban Retreat in Madrid: Discover the beauty of Retiro Park, a tranquil urban retreat in the heart of Madrid, perfect for picnics and relaxation.
@@ -96,3 +86,5 @@ function generatePrompt(city) {
   // Names:`;
 
 }
+
+export { generateCity };
