@@ -1,12 +1,13 @@
 // import React, { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { responseParser } from "./api/responseParser";
+import { generateCity } from "./api/generateCity";
 import { useNewsContext } from './Context/NewsContext';
 import './index.css';
 
 export const Lobby = () => {
   const { cityInput, setCityInput, result, setResult } = useNewsContext();
-  // console.log("context contents9:", cityInput, setCityInput, result, setResult)
+  // console.log("context contents10:", cityInput, setCityInput, result, setResult)
   const navigate = useNavigate();
 
 
@@ -15,23 +16,14 @@ export const Lobby = () => {
     try {
 
       // const response = await fetch("/api/generateCity", {
-      const response = await fetch("https://local-news-api.onrender.com", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ city: cityInput }),
-      });
+      const response = await generateCity(cityInput)
+ 
       console.log("line 22 response:", response);
-      const data = await response.json();
-      if (response.status !== 200) {
-        throw data.error || new Error(`Request failed with status ${response.status}`);
-      }
-      console.log("data26:", data); //data is there
-      console.log("parsed data27:", responseParser(data.result)); //data is correctly parsed
+      console.log("parsed response", responseParser(response))
 
-      setResult(responseParser(data.result)); // this line doesn't work
-      // console.log("result30:", result);
+      setResult(responseParser(response));
+
+      console.log("result30:", result);
 
       setTimeout(() => {  //this is an attempt at delaying setResult so that it eventually gets set or to find out if a later console.log is different
         // setResult(responseParser(data.result));

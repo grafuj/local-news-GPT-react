@@ -1,6 +1,6 @@
 import { Configuration, OpenAIApi } from "openai";
 
-const generateCity = async (city) {
+const generateCity = async (cityInput) => {
   const configuration = new Configuration({
     apiKey: process.env.OPENAI_API_KEY,
   });
@@ -10,6 +10,7 @@ const generateCity = async (city) {
     throw new Error("OpenAI API key not configured, please follow instructions in README.md");
   }
 
+  const city = cityInput.trim();
   if (city.trim().length === 0) {
     throw new Error("Please enter a valid city");
   }
@@ -25,18 +26,16 @@ const generateCity = async (city) {
 
     console.log("37 completion:", completion);
 
+    // maybe if (completion) { return needed? don't know when it renders}
+
     return completion.data.choices[0].text;
   } catch (error) {
     if (error.response) {
       console.error(error.response.status, error.response.data);
-      res.status(error.response.status).json(error.response.data);
+      throw (error.response.data);
     } else {
       console.error(`Error with OpenAI API request: ${error.message}`);
-      res.status(500).json({
-        error: {
-          message: 'An error occurred during your request.',
-        }
-      });
+      throw new Error(`Error with OpenAI API request: ${error.message}`);
     }
   }
 };
