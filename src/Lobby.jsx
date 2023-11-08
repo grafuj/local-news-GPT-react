@@ -31,38 +31,6 @@ export const Lobby = () => {
       console.log("parsed data27:", responseParser(data.result)); //data is correctly parsed
 
       setResult(responseParser(data.result)); // this line doesn't work
-      /*
-      setResult([
-        {
-          title: 'Paris Fashion Week Unveils Latest Trends',
-          description: 'Get ready to be mesmerized by the world of fashion as Paris Fashion Week showcases the latest haute couture creations.'
-        },
-        {
-          title: 'New Art Exhibition at the Louvre',
-          description: 'Explore the artistic wonders of the Louvre Museum with a new and captivating exhibition that brings history to life.'
-        },
-        {
-          title: 'Parisian Cuisine at Its Finest',
-          description: 'Savor the exquisite flavors of Paris with the opening of a Michelin-starred restaurant that promises a gastronomic journey.'
-        },
-        {
-          title: 'Celebrating Bastille Day in Style',
-          description: 'Join the festive atmosphere as Parisians celebrate Bastille Day with fireworks, parades, and cultural events.'
-        },
-        {
-          title: 'Seine River Cruises',
-          description: "A Romantic Escape: Experience the romance of Paris by embarking on a scenic cruise along the Seine River, taking in the city's enchanting skyline."
-        },
-        {
-          title: 'Parisian Arts and Culture',
-          description: "Immerse yourself in Paris's rich cultural scene, from world-class art galleries to captivating theatrical performances."
-        },
-        {
-          title: 'Exploring Montmartre',
-          description: 'The Bohemian Heart of Paris: Take a stroll through Montmartre, the charming and artistic neighborhood known for its vibrant history and picturesque streets.'
-        }
-      ]);
-      */
       // console.log("result30:", result);
 
       setTimeout(() => {  //this is an attempt at delaying setResult so that it eventually gets set or to find out if a later console.log is different
