@@ -1,7 +1,5 @@
-// import React, { useState, useEffect } from "react";
 import { useNavigate, Link, json } from "react-router-dom";
 import { responseParser } from "./api/responseParser";
-// import { generateCity } from "./api/generateCity";
 import { useNewsContext } from './Context/NewsContext';
 import './index.css';
 
@@ -10,12 +8,9 @@ export const Lobby = () => {
   // console.log("context contents10:", cityInput, setCityInput, result, setResult)
   const navigate = useNavigate();
 
-
   const onSubmit = async (event) => {
     event.preventDefault();
     try {
-
-      // const response = await generateCity(cityInput)
       const response = await fetch("http://localhost:5000/generateCity", {
         method: "post",
         headers: {
@@ -27,18 +22,23 @@ export const Lobby = () => {
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
-      
-      console.log("line 22 response:", response);
-      console.log("parsed response", responseParser(response));
 
-      setResult(responseParser(response));
+      const data = await response.json();
+      if (response.status !== 200) {
+        throw data.error || new Error(`Request failed with status ${response.status}`);
+      }
 
-      console.log("result30:", result);
+      console.log("data31:", data.result); //data is there
+      console.log("parsed data32:", responseParser(data.result)); //data is correctly parsed
+
+      setResult(responseParser(data.result)); // this line doesn't work
+
+      // console.log("result36:", result); //not set yet
 
       setTimeout(() => {  //this is an attempt at delaying setResult so that it eventually gets set or to find out if a later console.log is different
         // setResult(responseParser(data.result));
-        console.log("result35:", result);
-        window.location.reload();
+        // console.log("result35:", result); // not set yet
+        // window.location.reload();
         navigate("/News"); //checking if staying on the page for longer fixes the problem
       }, 1500);
 
