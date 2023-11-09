@@ -1,7 +1,7 @@
 // import React, { useState, useEffect } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link, json } from "react-router-dom";
 import { responseParser } from "./api/responseParser";
-import { generateCity } from "./api/generateCity";
+// import { generateCity } from "./api/generateCity";
 import { useNewsContext } from './Context/NewsContext';
 import './index.css';
 
@@ -15,11 +15,21 @@ export const Lobby = () => {
     event.preventDefault();
     try {
 
-      // const response = await fetch("/api/generateCity", {
-      const response = await generateCity(cityInput)
- 
+      // const response = await generateCity(cityInput)
+      const response = await fetch("http://localhost:5000/generateCity", {
+        method: "post",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ city: cityInput }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      
       console.log("line 22 response:", response);
-      console.log("parsed response", responseParser(response))
+      console.log("parsed response", responseParser(response));
 
       setResult(responseParser(response));
 
@@ -33,6 +43,7 @@ export const Lobby = () => {
       }, 1500);
 
       // router.push("/News");
+
     } catch (error) {
       console.error(error);
       alert(error.message);
@@ -55,7 +66,7 @@ export const Lobby = () => {
             onChange={(e) => setCityInput(e.target.value)}
           />
           {/* <Link to="/News"> */}
-            <button type="submit" className="read-more-button" style={{ margin: 'auto' }}>Generate</button>
+          <button type="submit" className="read-more-button" style={{ margin: 'auto' }}>Generate</button>
           {/* </Link> */}
         </form>
       </div>
