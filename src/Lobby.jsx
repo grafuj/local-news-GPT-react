@@ -54,9 +54,9 @@ export const Lobby = () => {
             value={cityInput}
             onChange={(e) => setCityInput(e.target.value)}
           />
-          <Link to="/News">
+          {/* <Link to="/News"> */}
             <button type="submit" className="read-more-button" style={{ margin: 'auto' }}>Generate</button>
-          </Link>
+          {/* </Link> */}
         </form>
       </div>
       <hr className={"hr-separator"} />

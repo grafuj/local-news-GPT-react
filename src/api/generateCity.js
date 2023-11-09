@@ -3,7 +3,7 @@ import OpenAI from "openai";
 const generateCity = async (cityInput) => {
   
   const openai = new OpenAI({
-    apiKey: process.env.OPENAI_API_KEY,
+    apiKey: import.meta.env.VITE_OPENAI_API_KEY,
   });
 
   if (!configuration.apiKey) {
