@@ -24,7 +24,7 @@ const generateCity = async (cityInput) => {
       max_tokens: 15,
     });
 
-    console.log("37 completion:", completion);
+    // console.log("37 completion:", completion);
 
     // maybe if (completion) { return needed? don't know when it renders}
 
