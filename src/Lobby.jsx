@@ -35,12 +35,12 @@ export const Lobby = () => {
 
       // console.log("result36:", result); //not set yet
 
-      setTimeout(() => {  //this is an attempt at delaying setResult so that it eventually gets set or to find out if a later console.log is different
+      // setTimeout(() => {  //this is an attempt at delaying setResult so that it eventually gets set or to find out if a later console.log is different
         // setResult(responseParser(data.result));
         // console.log("result35:", result); // not set yet
         // window.location.reload();
         navigate("/News"); //checking if staying on the page for longer fixes the problem
-      }, 1500);
+      // }, 500);
 
       // router.push("/News");
 
