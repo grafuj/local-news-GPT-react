@@ -51,27 +51,27 @@ export const LocalNewsPage = () => {
 
               <div className={"new-item"}>
                 <h3 className={"bold-titles"}>
-                  {result && result[0].title}
+                  {result[1].title && result[1].title}
                 </h3>
-                <p> {result && result[0].description} </p>
+                <p> {result[1].description && result[1].description} </p>
               </div>
 
               <hr className={"hr-separator"} />
 
               <div className={"new-item"}>
                 <h3 className={"bold-titles"}>
-                  {/* {result && result[2].title} */}
+                  {result[2].title && result[2].title}
                 </h3>
-                {/* <p> {result && result[2].description} </p> */}
+                <p> {result[2].description && result[2].description} </p>
               </div>
 
               <hr className={"hr-separator"} />
 
               <div className={"new-item"}>
                 <h3 className={"bold-titles"}>
-                  {/* {result && result[3].title} */}
+                  {result[3].title && result[3].title}
                 </h3>
-                {/* <p> {result && result[3].description} </p> */}
+                <p> {result[3].description && result[3].description} </p>
               </div>
             </div>
           </div>
@@ -80,23 +80,23 @@ export const LocalNewsPage = () => {
             <div className={"story-tile"}>
               <div className={"story-number"}>Story 01</div>
               <h3 className={"bold-titles"}>
-                {/* {result && result[4].title} */}
+                  {result[4].title && result[4].title}
               </h3>
-              {/* {result && result[4].description} */}
+               {result[4].description && result[4].description}
             </div>
             <div className={"story-tile"}>
               <div className={"story-number"}>Story 02</div>
               <h3 className={"bold-titles"}>
-                {/* {result && result[5].title} */}
+                  {result[5].title && result[5].title}
               </h3>
-              {/* {result && result[5].description} */}
+               {result[5].description && result[5].description}
             </div>
             <div className={"story-tile"}>
               <div className={"story-number"}>Story 03</div>
               <h3 className={"bold-titles"}>
-                {/* {result && result[6].title} */}
+                  {result[6].title && result[6].title}
               </h3>
-              {/* {result && result[6].description} */}
+               {result[6].description && result[6].description}
             </div>
           </div>
 

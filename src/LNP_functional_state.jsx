@@ -44,7 +44,6 @@ export const LocalNewsPage = () => {
                   <div className={"read-more-subtext"}>
                     {result && result[0].description}
                   </div>
-
                   <button className={"read-more-button"}>READ MORE</button>
                 </div>
               </div>
@@ -84,21 +83,21 @@ export const LocalNewsPage = () => {
             <div className={"story-tile"}>
               <div className={"story-number"}>Story 01</div>
               <h3 className={"bold-titles"}>
-                  {result && result[4].title}
+                {result && result[4].title}
               </h3>
               {result && result[4].description}
             </div>
             <div className={"story-tile"}>
               <div className={"story-number"}>Story 02</div>
               <h3 className={"bold-titles"}>
-                  {result && result[5].title}
+                {result && result[5].title}
               </h3>
               {result && result[5].description}
             </div>
             <div className={"story-tile"}>
               <div className={"story-number"}>Story 03</div>
               <h3 className={"bold-titles"}>
-                  {result && result[6].title}
+                {result && result[6].title}
               </h3>
               {result && result[6].description}
             </div>
