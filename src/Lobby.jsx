@@ -36,10 +36,10 @@ export const Lobby = () => {
       // console.log("result36:", result); //not set yet
 
       // setTimeout(() => {  //this is an attempt at delaying setResult so that it eventually gets set or to find out if a later console.log is different
-        // setResult(responseParser(data.result));
-        // console.log("result35:", result); // not set yet
-        // window.location.reload();
-        navigate("/News"); //checking if staying on the page for longer fixes the problem
+      // setResult(responseParser(data.result));
+      // console.log("result35:", result); // not set yet
+      // window.location.reload();
+      navigate("/News"); //checking if staying on the page for longer fixes the problem
       // }, 500);
 
       // router.push("/News");
@@ -55,8 +55,8 @@ export const Lobby = () => {
       <div className="main">
         <img className="city-image" src="/assets/images/building-user-solid.svg" style={{ width: '60px' }} />
         <h3>Local News GPT</h3>
-        <p>This is a static version of a local news site. The version with active API is finished developing but working on deployment.</p>
-        <h3>Select a City</h3>
+        <p>This site uses Open AI's open API to generate local news for any city you input.</p>
+        <h3>Enter a City</h3>
         <form onSubmit={onSubmit} className="form">
           <input
             type="text"
@@ -69,6 +69,7 @@ export const Lobby = () => {
           <button type="submit" className="read-more-button" style={{ margin: 'auto' }}>Generate</button>
           {/* </Link> */}
         </form>
+        <div className="loader"></div>
       </div>
       <hr className={"hr-separator"} />
       <div className={"attribution"}>

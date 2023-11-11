@@ -31,7 +31,7 @@ export const LocalNewsPage = () => {
           <div className={"image-container"}>
             <div className={"image-with-subtext"}>
               <div className={"blocks-image"}>
-                <img src="assets/images/blocks.jpg" alt="Colourful Blocks" className={"limit-img-width"} />
+                <img src="assets/images/generic_city.jpeg" alt={cityInput} className={"limit-img-width"} />
               </div>
 
               <div className={"image-subtext"}>
