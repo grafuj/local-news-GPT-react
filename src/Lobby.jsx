@@ -41,9 +41,8 @@ export const Lobby = () => {
       // console.log("result35:", result); // not set yet
       // window.location.reload();
       navigate("/News"); //checking if staying on the page for longer fixes the problem
+      setLoading(false);
       // }, 500);
-
-      // router.push("/News");
 
     } catch (error) {
       console.error(error);
