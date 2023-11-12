@@ -4,12 +4,13 @@ import { useNewsContext } from './Context/NewsContext';
 import './index.css';
 
 export const Lobby = () => {
-  const { cityInput, setCityInput, result, setResult } = useNewsContext();
+  const { cityInput, setCityInput, result, setResult, loading, setLoading } = useNewsContext();
   // console.log("context contents10:", cityInput, setCityInput, result, setResult)
   const navigate = useNavigate();
 
   const onSubmit = async (event) => {
     event.preventDefault();
+    setLoading(true);
     try {
       const response = await fetch("http://localhost:5000/generateCity", {
         method: "post",
@@ -67,9 +68,9 @@ export const Lobby = () => {
           />
           {/* <Link to="/News"> */}
           <button type="submit" className="read-more-button" style={{ margin: 'auto' }}>Generate</button>
+          {loading &&             <div className="loader"></div>} 
           {/* </Link> */}
         </form>
-        <div className="loader"></div>
       </div>
       <hr className={"hr-separator"} />
       <div className={"attribution"}>
