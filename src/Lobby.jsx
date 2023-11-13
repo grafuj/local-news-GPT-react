@@ -13,7 +13,7 @@ export const Lobby = () => {
     setLoading(true);
     try {
       // const response = await fetch("http://localhost:5000/generateCity", { // local server
-      const response = await fetch("https://local-news-api.onrender.com/", { // live render server
+      const response = await fetch("https://local-news-api.onrender.com/generateCity", { // live render server
         method: "post",
         headers: {
           "Content-Type": "application/json",
