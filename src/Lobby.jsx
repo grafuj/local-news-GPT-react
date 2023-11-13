@@ -30,8 +30,8 @@ export const Lobby = () => {
         throw data.error || new Error(`Request failed with status ${response.status}`);
       }
 
-      console.log("data31:", data.result); //data is there
-      console.log("parsed data32:", responseParser(data.result)); //data is correctly parsed
+      // console.log("data31:", data.result); //data is there
+      // console.log("parsed data32:", responseParser(data.result)); //data is correctly parsed
 
       setResult(responseParser(data.result)); // this line doesn't work
 
