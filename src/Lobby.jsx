@@ -5,7 +5,6 @@ import './index.css';
 
 export const Lobby = () => {
   const { cityInput, setCityInput, result, setResult, loading, setLoading } = useNewsContext();
-  // console.log("context contents10:", cityInput, setCityInput, result, setResult)
   const navigate = useNavigate();
 
   const onSubmit = async (event) => {
@@ -30,20 +29,13 @@ export const Lobby = () => {
         throw data.error || new Error(`Request failed with status ${response.status}`);
       }
 
-      // console.log("data31:", data.result); //data is there
+      // console.log("data33:", data.result); //data was generated
       // console.log("parsed data32:", responseParser(data.result)); //data is correctly parsed
 
-      setResult(responseParser(data.result)); // this line doesn't work
+      setResult(responseParser(data.result));
 
-      // console.log("result36:", result); //not set yet
-
-      // setTimeout(() => {  //this is an attempt at delaying setResult so that it eventually gets set or to find out if a later console.log is different
-      // setResult(responseParser(data.result));
-      // console.log("result35:", result); // not set yet
-      // window.location.reload();
-      navigate("/News"); //checking if staying on the page for longer fixes the problem
+      navigate("/News");
       setLoading(false);
-      // }, 500);
 
     } catch (error) {
       console.error(error);
@@ -66,10 +58,8 @@ export const Lobby = () => {
             value={cityInput}
             onChange={(e) => setCityInput(e.target.value)}
           />
-          {/* <Link to="/News"> */}
           <button type="submit" className="read-more-button" style={{ margin: 'auto' }}>Generate</button>
-          {loading &&             <div className="loader"></div>} 
-          {/* </Link> */}
+          {loading && <div className="loader"></div>}
         </form>
       </div>
       <hr className={"hr-separator"} />

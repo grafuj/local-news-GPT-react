@@ -4,7 +4,6 @@ import { useNewsContext } from "./Context/NewsContext";
 
 export const LocalNewsPage = () => {
   const { cityInput, result } = useNewsContext();
-  // const { cityInput, setCityInput, result, setResult } = useNewsContext();
   // console.log("7 LocalNewsPage: city:", cityInput, "res:", result); //
 
   return (
