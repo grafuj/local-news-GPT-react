@@ -20,6 +20,7 @@ export const Lobby = () => {
         body: JSON.stringify({ city: cityInput }),
       });
 
+      console.log("response: ", response)
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
